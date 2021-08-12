@@ -79,8 +79,20 @@ var fight = function (enemyName) {
 };
 
 for (var i = 0; i < enemyNames.length; i++) {
+    if (playerHealth > 0) {
+        // let player know current round, remeber array start at 0 so ad 1 to get correct round number (i + 1)
+        window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+    }
+
+    else {
+        window.alert("You Loose Sucka! Game Over!");
+        break;
+    }
+    //picks a new enemie based on the index of the enemyNames array
     var pickedEnemyName = enemyNames[i];
+    //will reset the health value of the new enemy
     enemyHealth = 50;
+    //passes the pickedEnemyName variable value into the fight function, uses the vale of the enemyName parameter
     fight(pickedEnemyName);
 }
 
