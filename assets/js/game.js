@@ -26,7 +26,7 @@ var enemyInfo = [
     }
 ];
 
-console.log(enemy.names[0]);
+
 
 // Game States
 // "WIN" - Player robot has defeated all enemy-robots
@@ -110,12 +110,31 @@ var playerInfo = {
     health: 100,
     attack: 10,
     money: 10,
-    reset: function() {
+    reset: function () {
         this.health = 100;
         this.money = 10;
         this.attack = 10;
-      }
+    },
+    refillHealth: function () {
+        if (this.money >= 7) {
+            window.alert("Refilling player's health by 20 for 7 coin.");
+            this.health += 20;
+            this.money -= 7;
+        }
+        else {
+            window.alert("Not Enough Coin!");
+        }
+    }, // <---------------- Comma here not ";"
+    upgradeAttack: function () {
+        if (this.money >= 7) {
+            window.alert("Increase player's attack by 6 for 7 coin.");
+            this.attack += 6;
+            this.money -= 7;
+        }
+        else window.alert("Not Enough Coin!");
+    }
 };
+
 var enemyInfo = [
     {
         name: "Roborto",
@@ -133,7 +152,7 @@ var enemyInfo = [
 //Start Game 
 var startGame = function () {
     //reset player stats
-   playerInfo.reset();
+    playerInfo.reset();
 
     for (var i = 0; i < enemyInfo.length; i++) {
         if (playerInfo.health > 0) {
@@ -195,29 +214,12 @@ var shop = function () {
     switch (shopOptionPrompt) {
         case "refill":
         case "REFILL":
-            if (playerInfo.money >= 7) {
-                window.alert("Refilling player's health by 20 for 7 Coins.");
-
-                // increase health and decrease money
-                playerInfo.health = playerInfo.health + 20;
-                playerInfo.money = playerInfo.money - 7;
-            }
-
-            else {
-                window.alert("Not Enough Coin!")
-            }
+            playerInfo.refillHealth();
             break;
 
         case "UPGRADE":
         case "upgrade":
-            if (playerInfo.money >= 7) {
-                window.alert("Upgrading player's attack by 6 for 7 Coins.");
-
-                // increase attack and decrease money
-                playerInfo.attack = playerInfo.attack + 6;
-                playerInfo.money = playerInfo.money - 7;
-            }
-
+            playerInfo.upgradeAttack();
             break;
 
         case "LEAVE":
