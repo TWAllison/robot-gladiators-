@@ -5,8 +5,18 @@ var randomNumber = function (min, max) {
     return value;
 };
 
+
+var getPlayerName = function () {
+    var name = "";
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+    console.log("Your robot's name is" + name);
+    return name;
+};
+
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10
@@ -26,7 +36,7 @@ var enemyInfo = [
     }
 ];
 
-console.log(enemy.names[0]);
+
 
 // Game States
 // "WIN" - Player robot has defeated all enemy-robots
@@ -104,17 +114,29 @@ var fight = function (enemy) {
     }
 };
 
+//function to set player name
+
+
+var getPlayerName = function () {
+    var name = "";
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+    console.log("Your robot's name is" + name);
+    return name;
+};
+
 //player info object and enemy names array 
 var playerInfo = {
     name: window.prompt("What is your robot's name?"),
     health: 100,
     attack: 10,
     money: 10,
-    reset: function() {
+    reset: function () {
         this.health = 100;
         this.money = 10;
         this.attack = 10;
-      }
+    }
 };
 var enemyInfo = [
     {
@@ -133,12 +155,13 @@ var enemyInfo = [
 //Start Game 
 var startGame = function () {
     //reset player stats
-   playerInfo.reset();
+    playerInfo.reset();
 
     for (var i = 0; i < enemyInfo.length; i++) {
         if (playerInfo.health > 0) {
             // let player know current round, remeber array start at 0 so ad 1 to get correct round number (i + 1)
             window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+
 
             var pickedEnemyObj = enemyInfo[i];
 
