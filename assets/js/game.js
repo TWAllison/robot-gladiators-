@@ -163,27 +163,6 @@ var playerInfo = {
         this.health = 100;
         this.money = 10;
         this.attack = 10;
-<<<<<<< HEAD
-    },
-    refillHealth: function () {
-        if (this.money >= 7) {
-            window.alert("Refilling player's health by 20 for 7 coin.");
-            this.health += 20;
-            this.money -= 7;
-        }
-        else {
-            window.alert("Not Enough Coin!");
-        }
-    }, // <---------------- Comma here not ";"
-    upgradeAttack: function () {
-        if (this.money >= 7) {
-            window.alert("Increase player's attack by 6 for 7 coin.");
-            this.attack += 6;
-            this.money -= 7;
-        }
-        else window.alert("Not Enough Coin!");
-=======
->>>>>>> develope
     }
 };
 
@@ -278,16 +257,6 @@ var shop = function () {
     shopOptionPrompt = parseInt(shopOptionPrompt);
     //switch function rather than "if"  because it is only one variable with multiple options
     switch (shopOptionPrompt) {
-<<<<<<< HEAD
-        case "refill":
-        case "REFILL":
-            playerInfo.refillHealth();
-            break;
-
-        case "UPGRADE":
-        case "upgrade":
-            playerInfo.upgradeAttack();
-=======
         case 1:
 
             if (playerInfo.money >= 7) {
@@ -313,7 +282,6 @@ var shop = function () {
                 playerInfo.money = playerInfo.money - 7;
             }
 
->>>>>>> develope
             break;
 
         case 3:
